@@ -10,8 +10,40 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.tomatogaming.ttt.MainMenu">
 
-    <TextView
+    <Button
+        android:text="@string/btnPlay"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/btnPlay" />
+
+    <Button
+        android:text="@string/btnQuit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:id="@+id/btnQuit"
+        android:layout_below="@+id/btnSettings"
+        android:layout_alignLeft="@+id/btnSettings"
+        android:layout_alignStart="@+id/btnSettings" />
+
+    <Button
+        android:text="@string/btnMultiplayer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/btnMultiplayer"
+        android:layout_below="@+id/btnPlay"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/btnSettings"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:id="@+id/btnSettings"
+        android:layout_below="@+id/btnMultiplayer"
+        android:layout_alignRight="@+id/btnPlay"
+        android:layout_alignEnd="@+id/btnPlay" />
 </RelativeLayout>

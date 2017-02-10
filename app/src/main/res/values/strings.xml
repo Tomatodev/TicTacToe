@@ -1,3 +1,24 @@
 <resources>
     <string name="app_name">TTT</string>
+    <string name="btnPlay">Play</string>
+    <string name="btnMultiplayer">Multiplayer</string>
+    <string name="btnSettings">Settings</string>
+    <string name="btnQuit">Quit</string>
+    <string name="btnBack">Back</string>
+    <string name="btnCreate">Create</string>
+    <string name="btnJoin">Join</string>
+    <string name="btnPass">Pass</string>
+    <string name="uiYouAre">You are:</string>
+    <string name="uiYourTurn">Your Turn</string>
+    <string name="uiTheirTurn">Their Turn</string>
+    <string name="radioLight">Light Theme</string>
+    <string name="radioDark">Dark Theme</string>
+    <string name="txtPrefXO">Prefer X or O</string>
+    <string name="txtTheme">Theme</string>
+    <string name="title_activity_lobby">LobbyActivity</string>
+    <string name="txtTotalGames">Total Games:</string>
+    <string name="btnAbout">About</string>
+    <string name="txtAppDescription">This app was made with Java.</string>
+    <string name="txtURL">www.TomatoesGaming.com</string>
+    <string name="btnSpectate">Spectate</string>
 </resources>
