@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_game"
     android:layout_width="match_parent"
@@ -17,7 +18,8 @@
         android:layout_alignParentBottom="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/btnQuit" />
+        android:id="@+id/btnQuit"
+        android:textSize="22sp" />
 
     <Button
         android:text="@string/btnPass"
@@ -26,7 +28,8 @@
         android:layout_alignTop="@+id/btnQuit"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/btnPass" />
+        android:id="@+id/btnPass"
+        android:textSize="22sp" />
 
     <TextView
         android:text="@string/uiYouAre"
@@ -35,7 +38,8 @@
         android:id="@+id/txtYouAre"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:textSize="22sp" />
 
     <TextView
         android:text="@string/uiYourTurn"
@@ -44,5 +48,98 @@
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/txtTurn" />
+        android:id="@+id/txtTurn"
+        android:textSize="22sp" />
+
+    <ImageButton
+        android:id="@+id/tacGrid4"
+        android:elevation="0dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+
+    <ImageButton
+        android:id="@+id/tacGrid8"
+        android:layout_below="@+id/tacGrid4"
+        android:layout_toRightOf="@+id/tacGrid4"
+        android:layout_toEndOf="@+id/tacGrid4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:id="@+id/tacGrid2"
+        android:layout_above="@+id/tacGrid4"
+        android:layout_toRightOf="@+id/tacGrid4"
+        android:layout_toEndOf="@+id/tacGrid4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:id="@+id/tacGrid0"
+        android:layout_above="@+id/tacGrid4"
+        android:layout_toLeftOf="@+id/tacGrid4"
+        android:layout_toStartOf="@+id/tacGrid4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:id="@+id/tacGrid6"
+        android:layout_below="@+id/tacGrid4"
+        android:layout_toLeftOf="@+id/tacGrid4"
+        android:layout_toStartOf="@+id/tacGrid4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:id="@+id/tacGrid7"
+        android:layout_below="@+id/tacGrid4"
+        android:layout_toRightOf="@+id/tacGrid6"
+        android:layout_toEndOf="@+id/tacGrid6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:id="@+id/tacGrid3"
+        android:layout_below="@+id/tacGrid0"
+        android:layout_alignLeft="@+id/tacGrid6"
+        android:layout_alignStart="@+id/tacGrid6"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:id="@+id/tacGrid5"
+        android:layout_below="@+id/tacGrid2"
+        android:layout_toRightOf="@+id/tacGrid4"
+        android:layout_toEndOf="@+id/tacGrid4"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:id="@+id/tacGrid1"
+        android:layout_alignTop="@+id/tacGrid2"
+        android:layout_toRightOf="@+id/tacGrid0"
+        android:layout_toEndOf="@+id/tacGrid0"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:background="@android:drawable/gallery_thumb" />
+
 </RelativeLayout>
