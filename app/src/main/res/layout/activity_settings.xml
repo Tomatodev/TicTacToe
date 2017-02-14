@@ -6,7 +6,7 @@
 
     <ImageView
         app:srcCompat="@drawable/x_red"
-        android:id="@+id/imageView"
+        android:id="@+id/imgSelectedToken"
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:checkedButton="@+id/radioX"
-        android:layout_below="@+id/imageView"
+        android:layout_below="@+id/imgSelectedToken"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/radioGroupX">
@@ -65,7 +65,7 @@
         android:layout_below="@+id/radioGroupX"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:id="@+id/RadioGroupColor">
+        android:id="@+id/radioGroupColor">
 
         <TextView
             android:text="@string/txtPrefColor"
