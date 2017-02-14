@@ -20,6 +20,10 @@ public class GameActivity extends AppCompatActivity
         Button btnQuit = (Button)findViewById(R.id.btnQuit);
         Button btnPass = (Button)findViewById(R.id.btnPass);
 
+        final String token = "o";
+        final String color = "orange";
+        final int marker = getResources().getIdentifier(token+"_"+color, "drawable", this.getPackageName());
+
         //grid buttons
         final ImageButton[] grid = new ImageButton[9];
         grid[0] = (ImageButton)findViewById(R.id.tacGrid0);
@@ -39,7 +43,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[0].setClickable(false);
-                grid[0].setImageResource(R.drawable.red_x);
+                grid[0].setImageResource(marker);
             }
         });
         grid[1].setOnClickListener(new View.OnClickListener()
@@ -48,7 +52,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[1].setClickable(false);
-                grid[1].setImageResource(R.drawable.red_x);
+                grid[1].setImageResource(marker);
             }
         });
         grid[2].setOnClickListener(new View.OnClickListener()
@@ -57,7 +61,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[2].setClickable(false);
-                grid[2].setImageResource(R.drawable.red_x);
+                grid[2].setImageResource(marker);
             }
         });
         grid[3].setOnClickListener(new View.OnClickListener()
@@ -66,7 +70,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[3].setClickable(false);
-                grid[3].setImageResource(R.drawable.red_x);
+                grid[3].setImageResource(marker);
             }
         });
         grid[4].setOnClickListener(new View.OnClickListener()
@@ -75,7 +79,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[4].setClickable(false);
-                grid[4].setImageResource(R.drawable.red_x);
+                grid[4].setImageResource(marker);
             }
         });
         grid[5].setOnClickListener(new View.OnClickListener()
@@ -84,7 +88,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[5].setClickable(false);
-                grid[5].setImageResource(R.drawable.red_x);
+                grid[5].setImageResource(marker);
             }
         });
         grid[6].setOnClickListener(new View.OnClickListener()
@@ -93,7 +97,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[6].setClickable(false);
-                grid[6].setImageResource(R.drawable.red_x);
+                grid[6].setImageResource(marker);
             }
         });
         grid[7].setOnClickListener(new View.OnClickListener()
@@ -102,7 +106,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[7].setClickable(false);
-                grid[7].setImageResource(R.drawable.red_x);
+                grid[7].setImageResource(marker);
             }
         });
         grid[8].setOnClickListener(new View.OnClickListener()
@@ -111,7 +115,7 @@ public class GameActivity extends AppCompatActivity
             public void onClick(View view)
             {
                 grid[8].setClickable(false);
-                grid[8].setImageResource(R.drawable.red_x);
+                grid[8].setImageResource(marker);
             }
         });
 
