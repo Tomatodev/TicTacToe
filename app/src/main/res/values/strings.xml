@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TTT</string>
-    <string name="btnPlay">Play</string>
+    <string name="btnPlay">Classic</string>
     <string name="btnMultiplayer">Multiplayer</string>
     <string name="btnSettings">Settings</string>
     <string name="btnQuit">Quit</string>
@@ -27,4 +27,9 @@
     <string name="colorPurple">Purple</string>
     <string name="colorRed">Red</string>
     <string name="colorTeal">Teal</string>
+    <string name="btnBattle">Battle mode</string>
+    <string name="txtSelectedImage">Selected Image</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

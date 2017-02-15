@@ -20,7 +20,7 @@ public class MainMenu extends AppCompatActivity
         Button btnSettings = (Button)findViewById(R.id.btnSettings);
         Button btnPlay = (Button)findViewById(R.id.btnPlay);
         Button btnMultiplayer = (Button)findViewById(R.id.btnMultiplayer);
-        Button btnQuit = (Button)findViewById(R.id.btnQuit); //people like to complain and call you an amateur if you don't have a quit button, even if its against the way things are supposed to be done...
+        Button btnBattle = (Button)findViewById(R.id.btnBattle);
 
 
         //when the settings button is pushed
@@ -52,21 +52,6 @@ public class MainMenu extends AppCompatActivity
             }
         });
 
-        //when quit is hit
-        btnQuit.setOnClickListener(new View.OnClickListener()
-        {
-            @Override
-            public void onClick(View view)
-            {
-                //TODO
-                // popup explaining that you really shouldn't close android apps an its managed by system etc
-                //do you want to pause the app and return to home screen instead
-
-                //pause the app
-                finish();
-            }
-        });
-
         //when the mp button is hit
         btnMultiplayer.setOnClickListener(new View.OnClickListener()
         {
@@ -76,6 +61,19 @@ public class MainMenu extends AppCompatActivity
                 //launch lobby activity
                 Intent lobby = new Intent(MainMenu.this, LobbyActivity.class);
                 startActivity(lobby);
+                finish();
+            }
+        });
+
+        //when battle btn is pushed
+        btnBattle.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View view)
+            {
+                //launch battle activity
+                Intent battle = new Intent(MainMenu.this, BattleActivity.class);
+                startActivity(battle);
                 finish();
             }
         });

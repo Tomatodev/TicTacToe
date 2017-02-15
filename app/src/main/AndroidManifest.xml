@@ -19,7 +19,8 @@
         <activity android:name=".SettingsActivity" />
         <activity
             android:name=".LobbyActivity"
-            android:label="@string/title_activity_lobby"></activity>
+            android:label="@string/title_activity_lobby" />
+        <activity android:name=".BattleActivity"></activity>
     </application>
 
 </manifest>

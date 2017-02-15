@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioGroup;
-import android.widget.TextView;
 
 public class SettingsActivity extends AppCompatActivity
 {

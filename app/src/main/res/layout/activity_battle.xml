@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_game"
+    android:id="@+id/activity_battle"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.tomatogaming.ttt.GameActivity"
-    android:background="@drawable/xxxhdpi_dirt">
+    android:paddingTop="@dimen/activity_vertical_margin">
 
     <Button
         android:text="@string/btnQuit"
@@ -32,18 +31,8 @@
         android:textSize="22sp" />
 
     <TextView
-        android:text="@string/uiYouAre"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/txtYouAre"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:textSize="22sp" />
-
-    <TextView
         android:text="@string/uiYourTurn"
-        android:layout_width="wrap_content"
+        android:layout_width="75dp"
         android:layout_height="wrap_content"
         android:layout_alignParentTop="true"
         android:layout_alignParentLeft="true"
@@ -141,5 +130,44 @@
         android:layout_height="100dp"
         android:scaleType="centerCrop"
         android:background="@android:drawable/gallery_thumb" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        app:srcCompat="@drawable/x_blue"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/btnZ"
+        android:scaleType="centerCrop"
+        android:layout_height="75dp" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        app:srcCompat="@drawable/x_brown"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btnZ"
+        android:layout_toStartOf="@+id/btnZ"
+        android:id="@+id/btnY"
+        android:scaleType="centerCrop"
+        android:layout_height="75dp" />
+
+    <ImageButton
+        android:layout_width="75dp"
+        app:srcCompat="@drawable/x_green"
+        android:layout_alignParentTop="true"
+        android:layout_toLeftOf="@+id/btnY"
+        android:layout_toStartOf="@+id/btnY"
+        android:id="@+id/btnX"
+        android:scaleType="centerCrop"
+        android:layout_height="75dp" />
+
+    <ImageView
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        app:srcCompat="@drawable/o_purple"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/imgSelected"
+        android:contentDescription="@string/txtSelectedImage" />
 
 </RelativeLayout>
