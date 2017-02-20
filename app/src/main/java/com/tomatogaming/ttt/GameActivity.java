@@ -307,20 +307,139 @@ public class GameActivity extends AppCompatActivity
             }
         }
 
-
         //if canWin true return winner
         if (canWin)
+        {
             return pick;
+        }
 
-            //if false check for blocks
+        //if false check for blocks
         else
         {
             //iterate over the grid and see if p1 is about to win
+            for (int i = 0; i < myGrid.length; i++)
+            {
+                if (gridState[i]) //if there is a token in that spot
+                {
+                    continue;
+                }
+                else //the spot is open
+                {
+                    //horizontal checking
+                    if (i == 0 || i == 3 || i == 6) //the left column
+                    {
+                        if (myGrid[i + 1] && myGrid[i + 2]) //i, and the two to its right
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                    if (i == 1 || i == 4 || i == 7) //the middle column
+                    {
+                        if (myGrid[i - 1] && myGrid[i + 1]) //to the left and right
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                    if (i == 2 || i == 5 || i == 8) //the final column
+                    {
+                        if (myGrid[i -1] && myGrid[i -2]) //the two to its left
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+
+                    //vertical checking
+                    if (i == 0 || i ==1 || i == 2) //top row
+                    {
+                        if (myGrid[i + 3] && myGrid[i + 6])//the grid directly under and directly under that
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                    if (i == 3 || i ==4 || i == 5) //middle row
+                    {
+                        if (myGrid[i - 3] && myGrid[i + 3])//the grid directly above and directly under
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                    if (i == 6 || i ==7 || i == 8) //bottom row
+                    {
+                        if (myGrid[i - 3] && myGrid[i - 6])//the grid directly above and the grid directly above that
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+
+                    // diagonal checking
+                    if (i == 0) //top left
+                    {
+                        if (myGrid[i + 4] && myGrid[i + 8]) //middle to bottom right
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                    if ( i == 2) //top right
+                    {
+                        if (myGrid[i +2] && myGrid[i +4]) //middle to bottom left
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                    if (i == 4) //middle
+                    {
+                        if (myGrid[i - 4] && myGrid[i + 4]) //top left to bottom right
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                        if (myGrid[i - 2] && myGrid[i + 2]) //top right to bottom left
+                        {
+                            pick = i;
+                            canBlock= true;
+                            break;
+                        }
+                    }
+                    if ( i == 6) //bottom left
+                    {
+                        if (myGrid[i -2] && myGrid[i -4]) //middle to top left
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                    if (i == 8) //bottom right
+                    {
+                        if (myGrid[i - 4] && myGrid[i - 8]) //middle to top left
+                        {
+                            pick = i;
+                            canBlock = true;
+                            break;
+                        }
+                    }
+                }
+            }
             //if true return block
             if (canBlock)
             {
-                //TODO
-                //implement blocking
                 return pick;
             }
             //if false pick at random
