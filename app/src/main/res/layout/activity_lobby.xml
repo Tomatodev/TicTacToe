@@ -19,21 +19,12 @@
         android:layout_alignParentStart="true"
         android:id="@+id/txtGames" />
 
-    <Button
-        android:text="@string/btnBack"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:id="@+id/btnBack" />
-
     <ScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@+id/txtGames"
-        android:layout_toLeftOf="@+id/btnJoin"
-        android:layout_toStartOf="@+id/btnJoin"
+        android:layout_toLeftOf="@+id/btnInvitations"
+        android:layout_toStartOf="@+id/btnInvitations"
         android:id="@+id/listMatches">
 
         <LinearLayout
@@ -43,13 +34,31 @@
     </ScrollView>
 
     <Button
+        android:text="@string/btnQuickPlay"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnQuickPlay"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
+
+    <Button
+        android:text="@string/btnBack"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/btnBack"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
         android:text="@string/btnJoin"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/btnJoin"
+        android:id="@+id/btnInvitations"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnNew"
-        android:layout_toEndOf="@+id/btnNew" />
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <Button
         android:text="@string/btnCreate"
@@ -57,15 +66,6 @@
         android:layout_height="wrap_content"
         android:id="@+id/btnNew"
         android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnBack"
-        android:layout_toEndOf="@+id/btnBack" />
+        android:layout_centerHorizontal="true" />
 
-    <Button
-        android:text="@string/btnSpectate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_toRightOf="@+id/btnJoin"
-        android:layout_toEndOf="@+id/btnJoin"
-        android:id="@+id/btnSpectate" />
 </RelativeLayout>
