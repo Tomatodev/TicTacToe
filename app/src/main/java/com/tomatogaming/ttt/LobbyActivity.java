@@ -10,7 +10,15 @@ import android.widget.Toast;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.games.Games;
+import com.google.android.gms.games.multiplayer.Multiplayer;
+import com.google.android.gms.games.multiplayer.realtime.RoomConfig;
+import com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatchBuffer;
+import com.google.android.gms.games.multiplayer.turnbased.TurnBasedMatchConfig;
 import com.google.example.games.basegameutils.BaseGameUtils;
+
+import java.util.ArrayList;
+
+import static android.R.attr.data;
 
 public class LobbyActivity extends Activity
     implements GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener
@@ -20,6 +28,7 @@ public class LobbyActivity extends Activity
     private boolean mResolvingConnectionFailure = false;
     private boolean mAutoStartSignInFlow = true;
     private boolean mSignInClicked = false;
+    public final static int RC_SELECTED_PLAYERS = 2;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -39,6 +48,9 @@ public class LobbyActivity extends Activity
                 .addApi(Games.API)
                 .addScope(Games.SCOPE_GAMES)
                 .build();
+
+        //create the match builder
+
 
         //on back press
         btnBack.setOnClickListener(new View.OnClickListener()
@@ -64,7 +76,8 @@ public class LobbyActivity extends Activity
             {
                 if (mGoogleApiClient.isConnected())
                 {
-
+                    Intent intent = Games.TurnBasedMultiplayer.getSelectOpponentsIntent(mGoogleApiClient, 1, 1, true);
+                    startActivityForResult(intent, RC_SELECTED_PLAYERS);
                 }
                 else
                 {
@@ -164,14 +177,50 @@ public class LobbyActivity extends Activity
             mAutoStartSignInFlow = false;
             mSignInClicked = false;
             mResolvingConnectionFailure = BaseGameUtils.resolveConnectionFailure(this, mGoogleApiClient,
-                    connectionResult, RC_SIGN_IN, getString(R.string.common_google_play_services_sign_in_failed_text));
+                    connectionResult, RC_SIGN_IN, getString(R.string.unknown_error));
         }
         showSignInBar();
     }
 
+    @Override
     protected void onActivityResult(int requestCode, int responseCode, Intent intent)
     {
-        if (requestCode == RC_SIGN_IN) {
+        super.onActivityResult(requestCode, responseCode, intent);
+
+        if (requestCode == RC_SELECTED_PLAYERS)
+        {
+            if (responseCode != Activity.RESULT_OK) //cancelled
+            {
+                return;
+            }
+
+            final ArrayList<String> invitees = intent.getStringArrayListExtra(Games.EXTRA_PLAYER_IDS); //get the invitees
+            Bundle autoMatchCriteria = null;
+            int minAutoMatchPlayers = intent.getIntExtra(Multiplayer.EXTRA_MIN_AUTOMATCH_PLAYERS, 0);
+            int maxAutoMatchPlayers = intent.getIntExtra(Multiplayer.EXTRA_MAX_AUTOMATCH_PLAYERS, 0);
+
+            if (minAutoMatchPlayers > 0)
+            {
+                autoMatchCriteria = RoomConfig.createAutoMatchCriteria(minAutoMatchPlayers, maxAutoMatchPlayers, 0);
+            }
+            else
+            {
+                autoMatchCriteria = null;
+            }
+
+            TurnBasedMatchConfig tbmc = TurnBasedMatchConfig.builder()
+                    .addInvitedPlayers(invitees)
+                    .setAutoMatchCriteria(autoMatchCriteria)
+                    .build();
+
+            //create and start the match
+            Games.TurnBasedMultiplayer
+                    .createMatch(mGoogleApiClient, tbmc)
+                    .setResultCallback(new MatchInitiatedCallback());
+
+        }
+        if (requestCode == RC_SIGN_IN)
+        {
             mSignInClicked = false;
             mResolvingConnectionFailure = false;
             if (responseCode == RESULT_OK)
@@ -180,7 +229,7 @@ public class LobbyActivity extends Activity
             }
             else
             {
-                BaseGameUtils.showActivityResultError(this,requestCode,responseCode, R.string.common_google_play_services_sign_in_failed_text);
+                BaseGameUtils.showActivityResultError(this,requestCode,responseCode, R.string.unknown_error);
             }
         }
     }

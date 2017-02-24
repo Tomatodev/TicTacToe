@@ -27,10 +27,6 @@
         android:layout_toStartOf="@+id/btnInvitations"
         android:id="@+id/listMatches">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" />
     </ScrollView>
 
     <Button
@@ -49,7 +45,8 @@
         android:id="@+id/btnBack"
         android:layout_alignParentTop="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        tools:ignore="RelativeOverlap" />
 
     <Button
         android:text="@string/btnJoin"
