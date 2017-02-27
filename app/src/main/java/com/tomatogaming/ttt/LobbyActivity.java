@@ -94,7 +94,8 @@ public class LobbyActivity extends Activity
             {
                 if (mGoogleApiClient.isConnected())
                 {
-
+                    Intent inviteIntent = Games.TurnBasedMultiplayer.getInboxIntent(mGoogleApiClient); //get the invite intent
+                    startActivityForResult(inviteIntent, 0); //start the invite intent
                 }
                 else
                 {
@@ -147,8 +148,7 @@ public class LobbyActivity extends Activity
     // Shows the "sign out" bar (explanation and button).
     private void showSignOutBar()
     {
-        Toast.makeText(this, "Success",
-                Toast.LENGTH_LONG).show();
+        Toast.makeText(this, "Connected", Toast.LENGTH_SHORT).show();
     }
 
     @Override
