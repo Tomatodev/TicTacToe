@@ -1,5 +1,8 @@
 package com.tomatogaming.ttt;
 
+import android.app.Fragment;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -10,6 +13,28 @@ import android.widget.Button;
 
 public class MainMenu extends AppCompatActivity
 {
+    Button btnSettings;
+    Button btnPlay;
+    Button btnMultiplayer;
+    Button btnBattle;
+
+    protected void hideMenu(boolean hide)
+    {
+        if (hide)
+        {
+            btnBattle.setVisibility(View.GONE);
+            btnMultiplayer.setVisibility(View.GONE);
+            btnPlay.setVisibility(View.GONE);
+            btnSettings.setVisibility(View.GONE);
+        }
+        else
+        {
+            btnBattle.setVisibility(View.VISIBLE);
+            btnMultiplayer.setVisibility(View.VISIBLE);
+            btnPlay.setVisibility(View.VISIBLE);
+            btnSettings.setVisibility(View.VISIBLE);
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -17,11 +42,12 @@ public class MainMenu extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
 
-        Button btnSettings = (Button)findViewById(R.id.btnSettings);
-        Button btnPlay = (Button)findViewById(R.id.btnPlay);
-        Button btnMultiplayer = (Button)findViewById(R.id.btnMultiplayer);
-        Button btnBattle = (Button)findViewById(R.id.btnBattle);
+        btnSettings = (Button)findViewById(R.id.btnSettings);
+        btnPlay = (Button)findViewById(R.id.btnPlay);
+        btnMultiplayer = (Button)findViewById(R.id.btnMultiplayer);
+        btnBattle = (Button)findViewById(R.id.btnBattle);
 
+        final GameFragment gameFragment = new GameFragment();
 
         //when the settings button is pushed
         btnSettings.setOnClickListener(new View.OnClickListener()
@@ -41,14 +67,14 @@ public class MainMenu extends AppCompatActivity
             @Override
             public void onClick(View view)
             {
-                //TODO
-                //replace with loading activity that sets things like prefs
-                //a single player type lobby handler
-
-                //start the game activity
-                Intent game = new Intent(MainMenu.this, GameActivity.class);
-                startActivity(game);
-                finish();
+                //launch the game fragment
+                Fragment fr = new GameFragment();
+                FragmentManager fm = getFragmentManager();
+                FragmentTransaction fragmentTransaction = fm.beginTransaction();
+                fragmentTransaction.replace(R.id.activity_main_menu, fr);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+                hideMenu(true);
             }
         });
 

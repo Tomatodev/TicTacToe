@@ -52,7 +52,6 @@
 
     <ImageButton
         android:id="@+id/tacGrid4"
-        android:elevation="0dp"
         android:layout_centerVertical="true"
         android:layout_centerHorizontal="true"
         android:layout_width="100dp"
