@@ -21,6 +21,8 @@ public class GameFragment extends Fragment
         final View view = inflater.inflate(R.layout.activity_game, container, false);
 
         Button btnQuit = (Button)view.findViewById(R.id.btnQuit);
+
+        //on quit press
         btnQuit.setOnClickListener(new View.OnClickListener()
         {
             @Override
